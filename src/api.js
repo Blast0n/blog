@@ -1,29 +1,22 @@
-const token = localStorage.getItem('token');
-const headers = {
-  'Content-Type': 'application/json',
-};
-if (token) {
-  headers.Authorization = `Token ${token}`;
-}
+// const token = localStorage.getItem('token');
+// const headers = {
+//   'Content-Type': 'application/json',
+// };
+// if (token) {
+//   headers.Authorization = `Token ${token}`;
+// }
 
-export async function getData(page) {
+export async function getData(page, headers) {
   if (page === 1) {
     page = 0;
   } else {
     page *= 5;
   }
-  const token1 = localStorage.getItem('token');
-  const headers1 = {
-    'Content-Type': 'application/json',
-  };
-  if (token1) {
-    headers1.Authorization = `Token ${token1}`;
-  }
   const url = `https://blog.kata.academy/api/articles?limit=5&offset=${page}`;
   try {
     const response = await fetch(url, {
       method: 'GET',
-      headers1,
+      headers,
     });
     if (!response.ok) {
       throw new Error(response.status);
@@ -35,7 +28,7 @@ export async function getData(page) {
   }
 }
 
-export async function getSinglePostData(id) {
+export async function getSinglePostData(id, headers) {
   const url = `https://blog.kata.academy/api/articles/${id}`;
   try {
     const response = await fetch(url, {
@@ -114,12 +107,12 @@ export async function postDoLogin(data) {
   throw new Error('An unexpected error occurred');
 }
 
-export async function getUserData() {
+export async function getUserData(token) {
   const url = 'https://blog.kata.academy/api/user';
   try {
     const response = await fetch(url, {
       method: 'GET',
-      headers,
+      Authorization: `Token ${token}`,
     });
     if (!response.ok) {
       throw new Error('error');
@@ -131,14 +124,11 @@ export async function getUserData() {
   }
 }
 
-export async function putUpdateUser(user) {
+export async function putUpdateUser(user, headers) {
   const url = 'https://blog.kata.academy/api/user';
   const response = await fetch(url, {
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${token}`,
-    },
+    headers,
     body: JSON.stringify(user),
   });
   if (response.ok) {
@@ -156,14 +146,11 @@ export async function putUpdateUser(user) {
   throw new Error('An unexpected error occurred');
 }
 
-export async function postNewArticle(data) {
+export async function postNewArticle(data, headers) {
   const url = 'https://blog.kata.academy/api/articles';
   const response = await fetch(url, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${token}`,
-    },
+    headers,
     body: JSON.stringify({
       article: data,
     }),
@@ -174,7 +161,7 @@ export async function postNewArticle(data) {
   throw new Error('An unexpected error occurred');
 }
 
-export async function putNewPost(obj) {
+export async function putNewPost(obj, headers) {
   const id = obj.slug;
   const data = {
     article: obj.article,
@@ -182,10 +169,7 @@ export async function putNewPost(obj) {
   const url = `https://blog.kata.academy/api/articles/${id}`;
   const response = await fetch(url, {
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${token}`,
-    },
+    headers,
     body: JSON.stringify(data),
   });
   if (response.ok) {
@@ -194,14 +178,11 @@ export async function putNewPost(obj) {
   throw new Error('An unexpected error occurred');
 }
 
-export async function deleteArticle(id) {
+export async function deleteArticle(id, headers) {
   const url = `https://blog.kata.academy/api/articles/${id}`;
   const response = await fetch(url, {
     method: 'DELETE',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${token}`,
-    },
+    headers,
   });
   if (response.ok) {
     return response.json();
@@ -209,14 +190,11 @@ export async function deleteArticle(id) {
   throw new Error('An unexpected error occurred');
 }
 
-export async function favoritesHandler(id, method) {
+export async function favoritesHandler(id, method, headers) {
   const url = `https://blog.kata.academy/api/articles/${id}/favorite`;
   const response = await fetch(url, {
     method,
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Token ${token}`,
-    },
+    headers,
   });
   if (response.ok) {
     return response.json();

@@ -14,9 +14,17 @@ import {
   favoritesHandler,
 } from '../api';
 
-export const getPosts = createAsyncThunk('blog/getPosts', async (page, { rejectWithValue }) => {
+export const getPosts = createAsyncThunk('blog/getPosts', async (page, { rejectWithValue, getState }) => {
+  const state = getState();
+  const { token } = state.app.user;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers.Authorization = `Token ${token}`;
+  }
   try {
-    const data = await getData(page);
+    const data = await getData(page, headers);
     if (data === '404') {
       throw new Error('Server error');
     }
@@ -26,9 +34,17 @@ export const getPosts = createAsyncThunk('blog/getPosts', async (page, { rejectW
   }
 });
 
-export const getPost = createAsyncThunk('blog/getPost', async (id, { rejectWithValue }) => {
+export const getPost = createAsyncThunk('blog/getPost', async (id, { rejectWithValue, getState }) => {
+  const state = getState();
+  const { token } = state.app.user;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers.Authorization = `Token ${token}`;
+  }
   try {
-    const data = await getSinglePostData(id);
+    const data = await getSinglePostData(id, headers);
     if (data === '404') {
       throw new Error('Server error');
     }
@@ -68,51 +84,94 @@ export const getUser = createAsyncThunk('blog/getUser', async (token, { rejectWi
   }
 });
 
-export const putUser = createAsyncThunk('blog/putUser', async (obj, { rejectWithValue }) => {
+export const putUser = createAsyncThunk('blog/putUser', async (obj, { rejectWithValue, getState }) => {
+  const state = getState();
+  const { token } = state.app.user;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers.Authorization = `Token ${token}`;
+  }
   try {
     const user = { user: obj };
-    const data = await putUpdateUser(user);
+    const data = await putUpdateUser(user, headers);
     return data;
   } catch (error) {
     return rejectWithValue({ message: error.message });
   }
 });
 
-export const postNewPsot = createAsyncThunk('blog/postNewPsot', async (obj, { rejectWithValue }) => {
+export const postNewPsot = createAsyncThunk('blog/postNewPsot', async (obj, { rejectWithValue, getState }) => {
+  const state = getState();
+  const { token } = state.app.user;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers.Authorization = `Token ${token}`;
+  }
   try {
-    const data = await postNewArticle(obj);
+    const data = await postNewArticle(obj, headers);
     return data;
   } catch (error) {
     return rejectWithValue({ message: error.message });
   }
 });
 
-export const putPost = createAsyncThunk('blog/putPost', async (obj, { rejectWithValue }) => {
+export const putPost = createAsyncThunk('blog/putPost', async (obj, { rejectWithValue, getState }) => {
+  const state = getState();
+  const { token } = state.app.user;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers.Authorization = `Token ${token}`;
+  }
   try {
-    const data = await putNewPost(obj);
+    const data = await putNewPost(obj, headers);
     return data;
   } catch (error) {
     return rejectWithValue({ message: error.message });
   }
 });
 
-export const deletePost = createAsyncThunk('blog/deletePost', async (id, { rejectWithValue }) => {
+export const deletePost = createAsyncThunk('blog/deletePost', async (id, { rejectWithValue, getState }) => {
+  const state = getState();
+  const { token } = state.app.user;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  if (token) {
+    headers.Authorization = `Token ${token}`;
+  }
   try {
-    const data = await deleteArticle(id);
+    const data = await deleteArticle(id, headers);
     return data;
   } catch (error) {
     return rejectWithValue({ message: error.message });
   }
 });
 
-export const postFavorite = createAsyncThunk('blog/postFavorite', async ({ id, method }, { rejectWithValue }) => {
-  try {
-    const data = await favoritesHandler(id, method);
-    return data;
-  } catch (error) {
-    return rejectWithValue({ message: error.message });
+export const postFavorite = createAsyncThunk(
+  'blog/postFavorite',
+  async ({ id, method }, { rejectWithValue, getState }) => {
+    const state = getState();
+    const { token } = state.app.user;
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    if (token) {
+      headers.Authorization = `Token ${token}`;
+    }
+    try {
+      const data = await favoritesHandler(id, method, headers);
+      return data;
+    } catch (error) {
+      return rejectWithValue({ message: error.message });
+    }
   }
-});
+);
 
 const appSlice = createSlice({
   name: 'blog',

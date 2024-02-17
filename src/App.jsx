@@ -17,9 +17,10 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const token = localStorage.getItem('token');
-    dispatch(getPosts(1));
     if (token) {
-      dispatch(getUser(token));
+      dispatch(getUser(token)).then(() => dispatch(getPosts(1)));
+    } else {
+      dispatch(getPosts(1));
     }
   }, []);
   return (

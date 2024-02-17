@@ -54,7 +54,8 @@ export default function SinglePost() {
                 <h2>{singlePostData.title}</h2>
                 <button className={style.header__favorite} type="button" onClick={handleFavorite}>
                   <img
-                    src={singlePostData.favorited ? './src/assets/redfav.svg' : './src/assets/Vector.svg'}
+                    //  src={singlePostData.favorited ? './src/assets/redfav.svg' : './src/assets/Vector.svg'}
+                    src="./src/assets/Vector.svg"
                     height="14"
                     width="14"
                     alt=""

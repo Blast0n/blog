@@ -56,7 +56,7 @@ export default function Post({ id, title, tagList, description, favoritesCount, 
               {newTitle}
               <button type="button" className={style['item-btn']} onClick={handleFavorite}>
                 <img
-                  src={favorited ? './src/assets/redfav.svg' : './src/assets/Vector.svg'}
+                  src={favorited ? 'https://svgur.com/i/13Hm.svg' : 'https://svgur.com/i/13Gn.svg'}
                   height="14"
                   width="14"
                   alt=""

@@ -12,11 +12,18 @@ export async function getData(page) {
   } else {
     page *= 5;
   }
+  const token1 = localStorage.getItem('token');
+  const headers1 = {
+    'Content-Type': 'application/json',
+  };
+  if (token1) {
+    headers1.Authorization = `Token ${token1}`;
+  }
   const url = `https://blog.kata.academy/api/articles?limit=5&offset=${page}`;
   try {
     const response = await fetch(url, {
       method: 'GET',
-      headers,
+      headers1,
     });
     if (!response.ok) {
       throw new Error(response.status);

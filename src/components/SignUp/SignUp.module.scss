@@ -1,0 +1,99 @@
+.signup {
+  margin: 50px auto;
+  padding: 48px 36.5px;
+  width: 384px;
+  min-height: 599px;
+  box-sizing: border-box;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 6px;
+  box-shadow:
+    0px 0.61px 2.93px 0px rgba(0, 0, 0, 0.02),
+    0px 1.46px 7.05px 0px rgba(0, 0, 0, 0.03),
+    0px 2.75px 13.27px 0px rgba(0, 0, 0, 0.04),
+    0px 4.91px 23.68px 0px rgba(0, 0, 0, 0.04),
+    0px 9.19px 44.28px 0px rgba(0, 0, 0, 0.05),
+    0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+  background: rgb(255, 255, 255);
+  &__line {
+    width: 100%;
+    height: 1px;
+    margin-top: 25px;
+    background: rgb(217, 217, 217);
+  }
+  h2 {
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+    color: rgb(38, 38, 38);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+  label {
+    color: rgb(38, 38, 38);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+  }
+  &__input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 4px;
+  }
+  &__error {
+    color: rgb(245, 34, 45);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  div {
+    margin-bottom: 12px;
+  }
+  &__terms {
+    label {
+      display: flex;
+      input {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    p {
+      margin-left: 5px;
+      margin-bottom: 21px;
+      user-select: none;
+      color: rgb(89, 89, 89);
+      font-family: Inter;
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  &__submit {
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    cursor: pointer;
+    color: white;
+    border-radius: 4px;
+    border: 0;
+    background: rgb(24, 144, 255);
+  }
+  &__redirect {
+    margin-top: 10px;
+    font-family: Inter;
+    color: rgb(191, 191, 191);
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
+  &__link {
+    color: rgb(24, 144, 255);
+    &:visited {
+      color: rgb(24, 144, 255);
+    }
+  }
+}

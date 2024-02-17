@@ -1,0 +1,132 @@
+.post {
+  margin: 0 auto;
+  max-width: 940px;
+  margin-top: 26px;
+  padding: 19px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .header__content {
+      width: 80%;
+      .header__title {
+        display: flex;
+        h2 {
+          word-break: break-all;
+          color: rgb(24, 144, 255);
+          font-family: Inter;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 28px;
+          letter-spacing: 0%;
+        }
+        .header__likes {
+          transform: translate(0%, 25%);
+          color: rgba(0, 0, 0, 0.75);
+          font-family: Inter;
+          font-size: 12px;
+          font-weight: 400;
+          letter-spacing: 0px;
+        }
+        .header__favorite {
+          cursor: pointer;
+          background: white;
+          border: 0;
+          img {
+            transform: translate(0%, 7%);
+            margin-left: 13px;
+          }
+        }
+      }
+    }
+    .header__tags {
+      cursor: pointer;
+      margin-right: 8px;
+      color: black;
+      border: 1px solid black;
+      padding: 2px;
+      border-radius: 3px;
+      font-family: Inter;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      letter-spacing: 0%;
+    }
+    .header__text {
+      word-break: break-all;
+      max-width: 682px;
+      margin-top: 5px;
+      color: rgba(0, 0, 0, 0.75);
+      font-family: Inter;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0px;
+      text-align: left;
+    }
+    .header__info {
+      position: relative;
+      display: flex;
+      min-height: 85px;
+      .header__user {
+        margin-right: 12px;
+        color: rgba(0, 0, 0, 0.85);
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 400;
+        .user__date {
+          color: rgba(0, 0, 0, 0.5);
+          font-family: Inter;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+      .header__avatar {
+        img {
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      .header__btns {
+        position: absolute;
+        bottom: 5px;
+        right: 1px;
+        display: flex;
+      }
+      .header__delete {
+        background: white;
+        cursor: pointer;
+        margin-right: 12px;
+        box-sizing: border-box;
+        padding: 6px 17px;
+        border: 1px solid rgb(245, 34, 45);
+        border-radius: 5px;
+        color: rgb(245, 34, 45);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .header__edit {
+        box-sizing: border-box;
+        padding: 6px 17px;
+        border: 1px solid rgb(82, 196, 26);
+        border-radius: 5px;
+        color: rgb(82, 196, 26);
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+  &__content {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    p {
+      word-break: break-all;
+    }
+  }
+}

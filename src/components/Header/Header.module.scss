@@ -1,0 +1,79 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 22px;
+  background-color: white;
+  &__title {
+    a {
+      color: rgba(0, 0, 0, 0.85);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 50px;
+    }
+  }
+  &__sign-in {
+    padding: 20px;
+    background-color: white;
+    border: 0;
+    width: 109px;
+    height: 51px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+  &__sign-up {
+    padding: 20px;
+    margin-left: 15px;
+    background-color: white;
+    color: rgb(82, 196, 26);
+    width: 109px;
+    height: 51px;
+    cursor: pointer;
+    border: 1px solid rgb(82, 196, 26);
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+  &__create {
+    padding: 15px;
+    margin-left: 15px;
+    background-color: white;
+    color: rgb(82, 196, 26);
+    width: 109px;
+    height: 51px;
+    cursor: pointer;
+    border: 1px solid rgb(82, 196, 26);
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+  &__user {
+    margin: 0 20px;
+    color: rgba(0, 0, 0, 0.85);
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    img {
+      transform: translate(10px, 15px);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__log-out {
+    padding: 15px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 109px;
+    height: 51px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+}

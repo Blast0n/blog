@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
 import { getPosts, getUser } from './store/appSlice';
@@ -15,14 +15,15 @@ import ArticleEdit from './components/ArticleEdit/ArticleEdit';
 
 function App() {
   const dispatch = useDispatch();
+  const { currentPage, isLogged } = useSelector((state) => state.app);
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      dispatch(getUser(token)).then(() => dispatch(getPosts(1)));
+      dispatch(getUser(token)).then(() => dispatch(getPosts(currentPage)));
     } else {
       dispatch(getPosts(1));
     }
-  }, []);
+  }, [isLogged]);
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

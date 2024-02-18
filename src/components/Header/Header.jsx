@@ -23,10 +23,7 @@ export default function Header() {
           <Link to="/profile" className={style.header__user}>
             <span>{user.username}</span>
             <img
-              src={
-                user.image ||
-                'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI='
-              }
+              src={user.image || 'https://static.productionready.io/images/smiley-cyrus.jpg'}
               alt=""
               width={46}
               height={46}

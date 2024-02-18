@@ -60,15 +60,17 @@ export default function SinglePost() {
             <div className={style.header__content}>
               <div className={style.header__title}>
                 <h2>{singlePostData.title}</h2>
-                <button className={style.header__favorite} type="button" onClick={handleFavorite}>
-                  <img
-                    src={singlePostData.favorited ? 'https://svgur.com/i/13Hm.svg' : 'https://svgur.com/i/13Gn.svg'}
-                    height="14"
-                    width="14"
-                    alt=""
-                  />
-                </button>
-                <span className={style.header__likes}>{singlePostData.favoritesCount}</span>
+                <div className={style.header__wrapper}>
+                  <button className={style.header__favorite} type="button" onClick={handleFavorite}>
+                    <img
+                      src={singlePostData.favorited ? 'https://svgur.com/i/13Hm.svg' : 'https://svgur.com/i/13Gn.svg'}
+                      height="14"
+                      width="14"
+                      alt=""
+                    />
+                  </button>
+                  <span className={style.header__likes}>{singlePostData.favoritesCount}</span>
+                </div>
               </div>
               <div style={{ wordBreak: 'break-all' }}>{tags}</div>
               <div className={style.header__text}>{singlePostData.description}</div>

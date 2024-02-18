@@ -73,6 +73,7 @@ export const postLogin = createAsyncThunk('blog/postLogin', async (obj, { reject
 });
 
 export const getUser = createAsyncThunk('blog/getUser', async (token, { rejectWithValue }) => {
+  console.log(token);
   try {
     const data = await getUserData(token);
     if (data === 'error') {

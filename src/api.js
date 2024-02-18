@@ -1,11 +1,3 @@
-// const token = localStorage.getItem('token');
-// const headers = {
-//   'Content-Type': 'application/json',
-// };
-// if (token) {
-//   headers.Authorization = `Token ${token}`;
-// }
-
 export async function getData(page, headers) {
   if (page === 1) {
     page = 0;
@@ -109,6 +101,7 @@ export async function postDoLogin(data) {
 
 export async function getUserData(token) {
   const url = 'https://blog.kata.academy/api/user';
+  console.log(token);
   try {
     const response = await fetch(url, {
       method: 'GET',

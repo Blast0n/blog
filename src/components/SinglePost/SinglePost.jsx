@@ -70,7 +70,7 @@ export default function SinglePost() {
                 </button>
                 <span className={style.header__likes}>{singlePostData.favoritesCount}</span>
               </div>
-              <div>{tags}</div>
+              <div style={{ wordBreak: 'break-all' }}>{tags}</div>
               <div className={style.header__text}>{singlePostData.description}</div>
             </div>
             <div className={style.header__info}>

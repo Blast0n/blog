@@ -206,7 +206,7 @@ const appSlice = createSlice({
       })
       .addCase(getPosts.rejected, (state, action) => {
         state.loading = false;
-        console.log(action.error.message);
+        console.log('getPosts', action.error.message);
       })
       .addCase(getPost.pending, (state) => {
         state.loading = true;
@@ -217,7 +217,7 @@ const appSlice = createSlice({
       })
       .addCase(getPost.rejected, (state, action) => {
         state.loading = false;
-        console.log(action.error.message);
+        console.log('getPost', action.error.message);
       })
       .addCase(postUser.pending, (state) => {
         state.loading = true;
@@ -230,7 +230,7 @@ const appSlice = createSlice({
       })
       .addCase(postUser.rejected, (state, action) => {
         state.loading = false;
-        console.log(action.error.message);
+        console.log('postUser', action.error.message);
       })
       .addCase(postLogin.pending, (state) => {
         state.loading = true;
@@ -254,7 +254,7 @@ const appSlice = createSlice({
         localStorage.setItem('token', action.payload.user.token);
       })
       .addCase(getUser.rejected, (state, action) => {
-        console.log(action.error.message);
+        console.log('getUser', action.error.message);
       })
       .addCase(putUser.pending, (state) => {
         state.loading = true;
@@ -265,7 +265,7 @@ const appSlice = createSlice({
         localStorage.setItem('token', action.payload.user.token);
       })
       .addCase(putUser.rejected, (state, action) => {
-        console.log(action.error.message);
+        console.log('putUser', action.error.message);
       })
       .addCase(postNewPsot.pending, (state) => {
         state.loading = true;
@@ -276,7 +276,7 @@ const appSlice = createSlice({
         state.data.pop();
       })
       .addCase(postNewPsot.rejected, (state, action) => {
-        console.log(action.error.message);
+        console.log('postNewPsot', action.error.message);
       })
       .addCase(putPost.pending, (state) => {
         state.loading = true;
@@ -286,7 +286,7 @@ const appSlice = createSlice({
         state.singlePostData = action.payload.article;
       })
       .addCase(putPost.rejected, (state, action) => {
-        console.log(action.error.message);
+        console.log('putPost', action.error.message);
       })
       .addCase(deletePost.pending, (state) => {
         state.loading = true;
@@ -295,7 +295,7 @@ const appSlice = createSlice({
         state.loading = false;
       })
       .addCase(deletePost.rejected, (state, action) => {
-        console.log(action.error.message);
+        console.log('deletePost', action.error.message);
       })
       .addCase(postFavorite.fulfilled, (state, action) => {
         state.singlePostData = action.payload.article;
@@ -307,7 +307,7 @@ const appSlice = createSlice({
         });
       })
       .addCase(postFavorite.rejected, (state, action) => {
-        console.log(action.error.message);
+        console.log('postFavorite', action.error.message);
       });
   },
 });

@@ -34,6 +34,7 @@ function App() {
         <Route path="profile" element={<Profile />} />
         <Route path="new-article" element={<ArticleCreate />} />
         <Route path=":id/edit" element={<ArticleEdit />} />
+        <Route path="*" element={<h1 style={{ textAlign: 'center' }}>PAGE NOT FOUND</h1>} />
       </Route>
     </Routes>
   );

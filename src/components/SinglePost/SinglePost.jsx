@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { format } from 'date-fns';
@@ -16,8 +16,13 @@ export default function SinglePost() {
   const navigate = useNavigate();
   const { singlePostData, loading, user, currentPage } = useSelector((state) => state.app);
   const dispatch = useDispatch();
+  const [err, setErr] = useState(false);
   useEffect(() => {
-    dispatch(getPost(id));
+    dispatch(getPost(id)).then((el) => {
+      if (el.payload === 'Server error') {
+        setErr(true);
+      }
+    });
   }, []);
   const tags = singlePostData.tagList?.map((el) => {
     let shortTag = el;
@@ -42,6 +47,9 @@ export default function SinglePost() {
       .then(() => dispatch(getPosts(currentPage)))
       .then(() => navigate('/'));
   };
+  if (err) {
+    return <h1 style={{ textAlign: 'center' }}>Article not found</h1>;
+  }
   return (
     <div className={style.post}>
       {loading ? (

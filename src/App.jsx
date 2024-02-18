@@ -18,7 +18,7 @@ function App() {
   const { currentPage, isLogged } = useSelector((state) => state.app);
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (token && !isLogged) {
       dispatch(getUser(token)).then(() => dispatch(getPosts(currentPage)));
     } else {
       dispatch(getPosts(1));

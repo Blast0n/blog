@@ -101,11 +101,13 @@ export async function postDoLogin(data) {
 
 export async function getUserData(token) {
   const url = 'https://blog.kata.academy/api/user';
-  console.log(token);
   try {
     const response = await fetch(url, {
       method: 'GET',
-      Authorization: `Token ${token}`,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Token ${token}`,
+      },
     });
     if (!response.ok) {
       throw new Error('error');

@@ -1,10 +1,5 @@
 export async function getData(page, headers) {
-  if (page === 1) {
-    page = 0;
-  } else {
-    page *= 5;
-  }
-  const url = `https://blog.kata.academy/api/articles?limit=5&offset=${page}`;
+  const url = `https://blog.kata.academy/api/articles?limit=5&offset=${5 * (page - 1)}`;
   try {
     const response = await fetch(url, {
       method: 'GET',
